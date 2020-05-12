@@ -11,6 +11,7 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 
+# ignore generated assets
 /public/css
 /public/js
 /public/mix-manifest.json
