@@ -13,6 +13,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home', [
+            'jobs' => [
+                (object) [
+                    'title' =>'Shopify Frontend Developer - Remote',
+                    'region' => 'Full-Time/Europe Only',
+                    'date' => 'May 13',
+                    'company' => (object)[
+                        'name' => 'CRISP STUDIO',
+                        'logo' => '/sample-logo.jpeg'
+                    ]
+                ]
+            ]
+        ]);
     }
 }
