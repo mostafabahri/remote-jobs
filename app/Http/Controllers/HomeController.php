@@ -23,7 +23,16 @@ class HomeController extends Controller
                         'name' => 'CRISP STUDIO',
                         'logo' => '/sample-logo.jpeg'
                     ]
-                ]
+                    ],
+                (object) [
+                    'title' =>'Full Stack Laravel Developer',
+                    'region' => 'Full-Time/Anywhere(100% remote) Only',
+                    'date' => 'May 20',
+                    'company' => (object)[
+                        'name' => 'SpinupWP',
+                        'logo' => '/sample-logo.jpeg'
+                    ]
+                    ],
             ]
         ]);
     }

@@ -23,13 +23,7 @@
     <div class="mt-10 max-w-screen-lg mx-auto space-y-4">
         <div class="text-2xl font-medium ml-4">Programming Jobs <span class="text-lg font-normal text-gray-700"> Latest
                 post 25 minutes ago</span></div>
-        <ul class="space-y-3">
-            @foreach ($jobs as $job)
-            <li>
-                <x-job-item :job="$job" />
-            </li>
-            @endforeach
-        </ul>
+        <x-job-list :jobs="$jobs" />
     </div>
 </body>
 
