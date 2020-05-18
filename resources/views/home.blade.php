@@ -26,6 +26,11 @@
                     Latest
                     post 25 minutes ago</span></div>
             <x-job-list :jobs="$jobs" />
+
+            <div class="flex justify-center">
+                {{$jobs->links()}}
+            </div>
+
         </div>
     </main>
 
