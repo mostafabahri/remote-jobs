@@ -6,6 +6,6 @@ class JobFinder
 {
     public function find()
     {
-        return Job::latest()->paginate();
+        return Job::with('company')->latest()->paginate();
     }
 }
