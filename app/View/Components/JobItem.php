@@ -27,4 +27,14 @@ class JobItem extends Component
     {
         return view('components.job-item');
     }
+
+    public function date()
+    {
+        return $this->job->created_at->format('M d');
+    }
+
+    public function companyLogo()
+    {
+        return $this->job->company->logo;
+    }
 }

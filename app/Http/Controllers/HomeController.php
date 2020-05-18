@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\JobFinder;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,29 +12,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(JobFinder $finder)
     {
-        return view('home', [
-            'jobs' => [
-                (object) [
-                    'title' =>'Shopify Frontend Developer - Remote',
-                    'region' => 'Full-Time/Europe Only',
-                    'date' => 'May 13',
-                    'company' => (object)[
-                        'name' => 'CRISP STUDIO',
-                        'logo' => '/sample-logo.jpeg'
-                    ]
-                    ],
-                (object) [
-                    'title' =>'Full Stack Laravel Developer',
-                    'region' => 'Full-Time/Anywhere(100% remote) Only',
-                    'date' => 'May 20',
-                    'company' => (object)[
-                        'name' => 'SpinupWP',
-                        'logo' => '/sample-logo.jpeg'
-                    ]
-                    ],
-            ]
-        ]);
+        return view(
+            'home',
+            ['jobs' => $finder->find()]
+        );
     }
 }
