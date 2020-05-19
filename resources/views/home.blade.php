@@ -24,7 +24,7 @@
         <div class="my-12 max-w-screen-lg mx-auto space-y-4">
             <div class="text-2xl font-medium ml-4">Programming Jobs <span class="text-lg font-normal text-gray-700">
                     Latest
-                    post 25 minutes ago</span></div>
+                    post {{App\Job::latest()->first('created_at')->created_at->diffForHumans()}}</span></div>
             <x-job-list :jobs="$jobs" />
 
             <div class="flex justify-center">
