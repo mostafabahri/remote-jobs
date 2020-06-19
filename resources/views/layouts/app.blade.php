@@ -9,7 +9,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @stack('styles')
     @stack('head-scripts')
-    <livewire:styles>
+    <livewire:styles />
+    <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
 </head>
 
 
@@ -17,8 +20,7 @@
     @yield('content')
 
     @stack('scripts')
-    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-    <livewire:scripts>
+    <livewire:scripts />
 </body>
 
 </html>
