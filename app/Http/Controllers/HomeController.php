@@ -12,11 +12,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(JobFinder $finder)
+    public function index()
     {
         return view(
             'home',
-            ['jobs' => $finder->find()]
+            ['jobs' => JobFinder::all()]
         );
     }
 }
