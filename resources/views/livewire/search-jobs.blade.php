@@ -1,4 +1,6 @@
+{{-- Single root required for Livewire to work --}}
 <div>
+    <x-navbar />
     <x-header>
         <x-slot name="description">
             We Work Remotely is the <span class="font-medium text-gray-900">largest remote work community in the
