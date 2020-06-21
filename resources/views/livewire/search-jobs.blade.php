@@ -17,6 +17,7 @@
             <x-job-list :jobs="$this->jobs" />
 
             <div class="flex justify-center">
+                {{$this->jobs->links()}}
             </div>
 
         </div>

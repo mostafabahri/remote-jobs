@@ -4,9 +4,12 @@ namespace App\Http\Livewire;
 
 use App\JobFinder;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class SearchJobs extends Component
 {
+    use WithPagination;
+
     public $search;
 
     protected $updatesQueryString = [
@@ -25,5 +28,15 @@ class SearchJobs extends Component
     public function render()
     {
         return view('livewire.search-jobs');
+    }
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
+    public function paginationView()
+    {
+        return 'vendor.pagination.livewire';
     }
 }
