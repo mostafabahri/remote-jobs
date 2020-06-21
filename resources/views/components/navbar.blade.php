@@ -17,7 +17,7 @@
     <div class="bg-gray-100 shadow-md w-full absoulte bottom-0" x-show.transition="searching"
         @click.away="searching = false">
         <div class="max-w-screen-lg mx-auto p-2 text-gray-800 flex">
-            <input type="text" wire:model.debounce.200ms="search" class="bg-gray-100 outline-none w-full"
+            <input type="text" wire:model.debounce.400ms="search" class="bg-gray-100 outline-none w-full"
                 placeholder="Search for react, javascript, time zone...">
             <img src="/loading.svg" class="w-5" wire:loading />
         </div>
