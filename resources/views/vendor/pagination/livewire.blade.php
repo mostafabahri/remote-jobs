@@ -1,5 +1,5 @@
 @if ($paginator->hasPages())
-<nav>
+<nav x-data="pagination()">
     <ul class="flex space-x-3 text-xl my-6 items-center">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
@@ -8,7 +8,8 @@
         </li>
         @else
         <li>
-            <button wire:click="previousPage" rel="prev" aria-label="@lang('pagination.previous')">&lsaquo;</button>
+            <button wire:click="previousPage" @click="handleClick" rel="prev"
+                aria-label="@lang('pagination.previous')">&lsaquo;</button>
         </li>
         @endif
 
@@ -27,7 +28,8 @@
             aria-current="page"><span>{{ $page }}</span>
         </li>
         @else
-        <li class="text-gray-700 hover:text-red-600"><button wire:click="gotoPage({{ $page }})">{{ $page }}</button>
+        <li class="text-gray-700 hover:text-red-600"><a href="#" @click="handleClick"
+                wire:click="gotoPage({{ $page }})">{{ $page }}</a>
         </li>
         @endif
         @endforeach
@@ -37,7 +39,7 @@
         {{-- Next Page Link --}}
         @if ($paginator->hasMorePages())
         <li>
-            <button wire:click="nextPage" class="text-gray-700" rel="next"
+            <button wire:click="nextPage" @click="handleClick" class="text-gray-700" rel="next"
                 aria-label="@lang('pagination.next')">&rsaquo;</button>
         </li>
         @else
@@ -48,3 +50,13 @@
     </ul>
 </nav>
 @endif
+<script>
+    function pagination() {
+        return {
+            handleClick() {
+                window.scroll({ top: 0});
+
+            }
+        }
+    }
+</script>

@@ -5,3 +5,7 @@
 @import 'header';
 
 @tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+}
