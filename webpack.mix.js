@@ -24,4 +24,10 @@ mix.js("resources/js/app.js", "public/js")
         extensions: ["html", "js", "php", "vue"]
     });
 
-mix.browserSync({ proxy: "localhost:8000", notify: false });
+if (!mix.inProduction()) {
+    mix.browserSync({
+        proxy: "localhost:8000",
+        notify: false
+    });
+
+}
