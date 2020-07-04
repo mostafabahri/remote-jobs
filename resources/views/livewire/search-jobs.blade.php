@@ -11,9 +11,9 @@
 
     <main>
         <div class="my-12 max-w-screen-lg mx-auto space-y-4" wire:loading.class="opacity-50">
-            <div class="text-2xl font-medium ml-4">Programming Jobs <span class="text-lg font-normal text-gray-700">
-                    Latest
-                    post {{App\Job::latest()->first('created_at')->created_at->diffForHumans()}}</span></div>
+            <div class="text-2xl font-medium ml-4">Programming Jobs
+                @include('fragments.latest-post')
+            </div>
             <x-job-list :jobs="$this->jobs" />
 
             <div class="flex justify-center">
