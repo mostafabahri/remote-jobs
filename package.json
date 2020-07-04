@@ -1,4 +1,10 @@
 {
+    "name": "remote-jobs",
+    "description": "Laravel fullstack remote job board",
+    "version": "1.0.0",
+    "engines": {
+        "node": "12.x"
+    },
     "private": true,
     "scripts": {
         "dev": "npm run development",
@@ -8,13 +14,16 @@
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "stack:watch": "concurrently \"php artisan serve\" \"npm:watch\""
+        "stack:watch": "concurrently \"php artisan serve\" \"npm:watch\"",
+        "build": "npm run prod"
     },
     "devDependencies": {
-        "axios": "^0.19",
-        "browser-sync-webpack-plugin": "^2.0.1",
         "concurrently": "^5.2.0",
-        "cross-env": "^7.0",
+        "browser-sync": "^2.26.7",
+        "browser-sync-webpack-plugin": "^2.0.1"
+    },
+    "dependencies": {
+        "axios": "^0.19",
         "laravel-mix": "^5.0.1",
         "laravel-mix-purgecss": "^5.0.0",
         "lodash": "^4.17.13",
@@ -22,9 +31,8 @@
         "sass": "^1.15.2",
         "sass-loader": "^8.0.0",
         "vue-template-compiler": "^2.6.11",
-        "websocket-extensions": ">=0.1.4"
-    },
-    "dependencies": {
+        "websocket-extensions": ">=0.1.4",
+        "cross-env": "^7.0",
         "tailwindcss": "^1.4.6"
     }
 }
