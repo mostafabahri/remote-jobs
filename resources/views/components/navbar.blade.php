@@ -1,4 +1,4 @@
-<div class="wrapper fixed top-0 z-30 inset-x-0 bg-white shadow-sm" x-data="{searching: false}">
+<div class="wrapper fixed top-0 z-30 inset-x-0 bg-white shadow-sm" x-data="searchForm()">
     <nav class="hidden lg:flex justify-between px-4 max-w-screen-xl mx-auto py-5">
         <div class="logo text-xl font-bold tracking-wider"><a href="/">WWR</a></div>
         <div>
@@ -7,19 +7,29 @@
                 @foreach ($links() as $link)
                 <li><a href="#"> {{$link}}</a></li>
                 @endforeach
-                <li class="cursor-pointer -mb-1" @click="searching = true">
+                <li class="cursor-pointer -mb-1" @click="open()">
                     <ion-icon name="search" class="text-xl"></ion-icon>
                 </li>
                 <x-button size="sm">Post a job</x-button>
             </ul>
         </div>
     </nav>
-    <div class="bg-gray-100 shadow-md w-full absoulte bottom-0" x-show.transition="searching"
-        @click.away="searching = false">
+    <div class="bg-gray-100 shadow-md w-full absoulte bottom-0" x-show.transition="searching" @click.away="close()">
         <div class="max-w-screen-lg mx-auto p-2 text-gray-800 flex">
-            <input type="text" wire:model.debounce.400ms="search" class="bg-gray-100 outline-none w-full"
-                placeholder="Search for react, javascript, time zone...">
+            <form action="/" method="get">
+                <input type="text" name="search" wire:model.debounce.400ms="search"
+                    class="bg-gray-100 outline-none w-full" placeholder="Search for react, javascript, time zone...">
+            </form>
             <img src="/loading.svg" class="w-5" wire:loading />
         </div>
     </div>
 </div>
+<script>
+    function searchForm() {
+        return {
+           searching: {{request()->has('search') ? 'true' : 'false'}},
+           open() {this.searching = true},
+           close() {this.searching = false}
+        }
+    }
+</script>
