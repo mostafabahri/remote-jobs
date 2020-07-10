@@ -10,7 +10,7 @@
     </x-header>
 
     <main>
-        <div class="my-12 max-w-screen-lg mx-auto space-y-4" wire:loading.class="opacity-50">
+        <div class="my-12 container space-y-4" wire:loading.class="opacity-50">
             <div class="text-2xl font-medium ml-4">Programming Jobs
                 @include('fragments.latest-post')
             </div>
