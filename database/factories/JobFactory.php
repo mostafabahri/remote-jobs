@@ -13,6 +13,7 @@ $factory->define(Job::class, function (Faker $faker) {
         'region' => $faker->randomElement([
             'Full Time/Anywhere', 'Only USA', 'Only Europe'
         ]),
+        'description' => $faker->realText(1000),
         'created_at' => $time,
         'updated_at' => $time
     ];

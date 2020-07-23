@@ -9,3 +9,7 @@
 html {
     scroll-behavior: smooth;
 }
+
+.container {
+    @apply max-w-screen-lg mx-auto;
+}
