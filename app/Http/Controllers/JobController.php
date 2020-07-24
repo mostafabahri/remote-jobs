@@ -17,7 +17,7 @@ class JobController extends Controller
     public function show(Job $job)
     {
         return view(
-            'single',
+            'jobs.show',
             ['job' => $job->load(
                 ['company' => function ($query) {
                     $query->withCount('jobs');
