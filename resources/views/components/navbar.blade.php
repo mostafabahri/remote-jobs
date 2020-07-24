@@ -15,8 +15,8 @@
         </div>
     </nav>
     <div class="bg-gray-100 shadow-md w-full absoulte bottom-0" x-show.transition="searching" @click.away="close()">
-        <div class="max-w-screen-lg mx-auto p-2 text-gray-800 flex">
-            <form action="/" method="get">
+        <div class="container p-2 text-gray-800 flex">
+            <form action="/" method="get" class="flex-grow">
                 <input type="text" name="search" wire:model.debounce.400ms="search"
                     class="bg-gray-100 outline-none w-full" placeholder="Search for react, javascript, time zone...">
             </form>

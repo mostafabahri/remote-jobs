@@ -1,6 +1,6 @@
 <footer>
     <div class="py-10 bg-gray-900 text-white px-3 lg:px-0">
-        <div class="max-w-screen-lg mx-auto">
+        <div class="container">
             <div class="grid gap-3 grid-cols-1 sm:grid-cols-2">
                 <div class="space-y-2">
                     <div class="text-xl font-medium">
