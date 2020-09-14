@@ -2,14 +2,17 @@
     <nav class="hidden lg:flex justify-between px-4 max-w-screen-xl mx-auto py-5">
         <div class="logo text-xl font-bold tracking-wider"><a href="/">WWR</a></div>
         <div>
-            <ul class="flex space-x-3 items-center text-gray-800">
+            <ul class="flex space-x-4 items-center text-gray-800">
 
                 @foreach ($links() as $link)
                 <li><a href="#"> {{$link}}</a></li>
                 @endforeach
-                <li class="cursor-pointer -mb-1" @click="open()">
-                    <ion-icon name="search" class="text-xl"></ion-icon>
+                <li class="cursor-pointer" @click="open()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" height="24" width="24" >
+    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+    </svg>
                 </li>
+
                 <x-button size="sm" href="{{route('jobs.create')}}">Post a job</x-button>
             </ul>
         </div>
