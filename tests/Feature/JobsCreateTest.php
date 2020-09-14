@@ -30,6 +30,7 @@ class JobsCreateTest extends TestCase
                 ],
                 [
                     'name' => 'myCompany',
+                    'location' => 'Chicago',
                     'logo' => UploadedFile::fake()->image('myLogo.jpg'),
                 ],
             ],
@@ -42,6 +43,7 @@ class JobsCreateTest extends TestCase
                 ],
                 [
                     'name' => 'myCompany',
+                    'location' => 'London',
                 ],
             ],
         ];

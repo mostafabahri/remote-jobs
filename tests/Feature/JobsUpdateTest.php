@@ -6,6 +6,7 @@ use App\Job;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Tests\Fixture\JobFixture;
 use Tests\TestCase;
 
 class JobsUpdateTest extends TestCase
@@ -31,6 +32,7 @@ class JobsUpdateTest extends TestCase
                 ],
                 [
                     'name' => 'myCompany',
+                    'location' => 'chicago',
                     'logo' => UploadedFile::fake()->image('myLogo.jpg'),
                 ],
             ],
@@ -43,6 +45,7 @@ class JobsUpdateTest extends TestCase
                 ],
                 [
                     'name' => 'myCompany',
+                    'location' => 'chicago',
                 ],
             ],
         ];
