@@ -8,7 +8,12 @@ class Company extends Model
 {
     use HasLogo;
 
-    protected $fillable = ['name', 'logo', 'location'];
+    protected $fillable = [
+        'name',
+        'logo',
+        'location',
+        'website'
+    ];
 
     public function jobs()
     {

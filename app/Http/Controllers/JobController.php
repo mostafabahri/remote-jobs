@@ -64,6 +64,7 @@ class JobController extends Controller
             'company.name' => 'required',
             'company.logo' => 'nullable|image|max:1024',
             'company.location' => 'required',
+            'company.website' => 'required|url',
         ]);
     }
 }

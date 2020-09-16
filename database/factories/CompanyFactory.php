@@ -8,6 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(Company::class, function (Faker $faker) {
     return [
         'name' => $faker->company,
-        'location' => $faker->city
+        'location' => $faker->city,
+        'website' => $faker->url,
     ];
 });
