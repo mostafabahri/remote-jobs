@@ -19,6 +19,7 @@ class HomeTest extends TestCase
         $response->assertOk();
 
         $jobs = Job::latest()->limit(3)->get();
+        $this->assertNotEmpty($jobs);
 
         foreach ($jobs as $job) {
             $response->assertSeeText($job->title);
