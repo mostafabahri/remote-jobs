@@ -14,7 +14,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(
+            'stripe',
+            function() { return new \Stripe\StripeClient(config('services.stripe.secret_key')); }
+        );
     }
 
     /**
