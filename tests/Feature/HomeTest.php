@@ -10,7 +10,7 @@ class HomeTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_home_page()
+    public function test_get_home_page_with_recent_jobs()
     {
         $this->seed();
 
