@@ -2,28 +2,50 @@
 
 namespace App\Http\Controllers;
 
+use App\Company;
 use App\Job;
-use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
-
     /**
      * Display the specified resource.
      *
-     * @param  \App\Job  $job
      * @return \Illuminate\Http\Response
      */
     public function show(Job $job)
     {
-        return view(
-            'jobs.show',
-            ['job' => $job->load(
-                ['company' => function ($query) {
-                    $query->withCount('jobs');
-                }]
-            )
-        ]
-        );
+        $job->loadDetails();
+
+        return view('jobs.show', compact('job'));
+    }
+
+    public function create()
+    {
+        return view('jobs.create',
+            ['job' => new Job(), 'action' => route('jobs.store'), 'method' => 'POST']);
+    }
+
+    public function store()
+    {
+        $this->validateRequest();
+        $job = Job::make(request('job'));
+
+        $job->company = Company::create(request('company'));
+
+        $job->save();
+
+        return view('jobs.preview', compact('job'));
+    }
+
+    protected function validateRequest()
+    {
+        return request()->validate([
+            'job.title' => 'required',
+            'job.region' => 'required',
+            'job.description' => 'required',
+            'job.instructions' => 'required',
+            'company.name' => 'required',
+            'company.logo' => 'nullable|image|max:1024',
+        ]);
     }
 }
