@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Company extends Model
 {
+    use HasLogo;
+
+    protected $fillable = ['name', 'logo'];
+
     public function jobs()
     {
         return $this->hasMany(Job::class);
