@@ -19,7 +19,7 @@
                             Remote jobs posted
                         </div>
                     </div>
-                    <x-button>Post a Job for FREE!</x-button>
+                    <x-button href="{{route('jobs.create')}}">Post a Job for FREE!</x-button>
                 </div>
             </div>
         </div>

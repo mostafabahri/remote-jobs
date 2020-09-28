@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\JobFinder;
-use Illuminate\Http\Request;
-
 class HomeController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display home page.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function __invoke()
     {
         return view('home');
     }

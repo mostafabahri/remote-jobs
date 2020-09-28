@@ -2,14 +2,6 @@
 @tailwind base;
 @tailwind components;
 /* purgecss end ignore */
-@import 'header';
+@import 'custom';
 
 @tailwind utilities;
-
-html {
-    scroll-behavior: smooth;
-}
-
-.container {
-    @apply max-w-screen-lg mx-auto;
-}

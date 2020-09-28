@@ -10,7 +10,7 @@ class ShowJobsTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_show_jobs_page()
+    public function test_get_jobs_page()
     {
         $this->seed();
 
@@ -23,5 +23,14 @@ class ShowJobsTest extends TestCase
         $response->assertSee($job->description);
 
         $response->assertSee($job->company->name);
+    }
+
+    public function test_return_404_when_job_not_found()
+    {
+        $this->seed();
+
+        $response = $this->get(route('jobs.show', 200000));
+
+        $response->assertNotFound();
     }
 }

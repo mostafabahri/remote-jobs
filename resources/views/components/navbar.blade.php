@@ -10,7 +10,7 @@
                 <li class="cursor-pointer -mb-1" @click="open()">
                     <ion-icon name="search" class="text-xl"></ion-icon>
                 </li>
-                <x-button size="sm">Post a job</x-button>
+                <x-button size="sm" href="{{route('jobs.create')}}">Post a job</x-button>
             </ul>
         </div>
     </nav>

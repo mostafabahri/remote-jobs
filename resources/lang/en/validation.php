@@ -146,6 +146,12 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        "job.title" => "Title",
+        "job.region" => "Region",
+        "job.description" => "Description",
+        "company.name" => "Company name",
+        "company.logo" => "Company logo",
+    ],
 
 ];

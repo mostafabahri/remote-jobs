@@ -1,15 +1,17 @@
 <?php
 
-namespace App;
+namespace App\Services\Job;
 
-class JobFinder
+use App\Job;
+
+class JobFinderService
 {
-    public static function all()
+    public function all()
     {
         return Job::with('company')->latest()->paginate();
     }
 
-    public static function search($term)
+    public function search($term)
     {
         if ($term) {
             return Job::with('company')->where('title', 'ilike', '%' . $term . '%')
@@ -18,6 +20,6 @@ class JobFinder
                 $query->where('name', 'ilike', '%' . $term . '%');
             })->latest()->paginate();
         }
-        return self::all();
+        return $this->all();
     }
 }

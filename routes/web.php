@@ -11,10 +11,8 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController')->name('home');
 
-Route::resource('/jobs', 'JobController')->only([
-    'show'
-]);
+Route::resource('/jobs', 'JobController');
