@@ -2,7 +2,8 @@
 
 namespace App\Http\Livewire;
 
-use App\JobFinder;
+use App\Services\Job\JobFinderService;
+
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -22,7 +23,7 @@ class SearchJobs extends Component
 
     public function getJobsProperty()
     {
-        return JobFinder::search($this->search);
+        return app(JobFinderService::class)->search($this->search);
     }
 
     public function render()
