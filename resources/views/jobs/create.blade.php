@@ -1,27 +1,8 @@
 @extends('layouts.app')
 @section('content')
 <div class="bg-pattern">
-    <div class="bg-white border-b">
-        <div class="container text-center my-12">
-            <div class="text-4xl font-medium">Reach the largest remote community on the web</div>
 
-            <div class="space-y-3 mt-12">
-                <ul class="flex space-x-2 justify-between">
-                    <li class="text-red-600 text-xl font-medium">Step 1</li>
-                    <li class="text-red-600 text-xl font-medium">Step 2</li>
-                    <li class="text-red-600 text-xl font-medium">Step 3</li>
-                </ul>
-                <div class="h-1 bg-gray-200 rounded-md">
-                <div class="w-1/3 h-1 bg-red-600"></div>
-                </div>
-                <ul class="flex space-x-2 justify-between">
-                    <li class="text-2xl font-medium">Post a job</li>
-                    <li class="text-2xl font-medium">Preview your ad</li>
-                    <li class="text-2xl font-medium">Purchase</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    @include('jobs._steps-header', ['step' => 1])
     <div class="container px-8 py-6 border bg-white my-6 shadow-sm">
         @if ($errors->any())
         <div class="rounded-sm px-6 py-4 bg-red-100 my-3 font-medium">
@@ -37,7 +18,7 @@
             @method($method)
 
             <div class="space-y-8">
-            <div class="text-red-600 text-2xl font-medium">First, tell us about the position</div>
+                <div class="text-red-600 text-2xl font-medium">First, tell us about the position</div>
                 <div class="flex flex-col space-y-2">
                     <label class="form-label" for="job[title]">Job title </label>
                     <input type="text" name="job[title]" class="form-input" value="{{old('job.title') ?? $job->title}}">
@@ -58,7 +39,7 @@
                         </select>
                     </div>
                 </div>
-    
+
                 <div class="flex flex-col space-y-2">
                     <label for="instructions" class="form-label">How to apply</label>
                     <input type="text" name="job[instructions]" class="form-input" value="{{old('job.instructions') ?? $job->instructions}}">

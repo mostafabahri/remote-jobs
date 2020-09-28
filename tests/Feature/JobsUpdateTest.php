@@ -2,20 +2,22 @@
 
 namespace Tests\Feature;
 
+use App\Job;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Tests\Fixture\JobFixture;
 use Tests\TestCase;
 
-class JobsCreateTest extends TestCase
+class JobsUpdateTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_get_create_job_page()
+    public function test_get_edit_job_page()
     {
-        $response = $this->get(route('jobs.create'));
-
-        $response->assertSuccessful();
+        $this->get(
+            route('jobs.edit', factory(Job::class)->create())
+        )->assertSuccessful();
     }
 
     public function validInputProvider()
@@ -30,7 +32,7 @@ class JobsCreateTest extends TestCase
                 ],
                 [
                     'name' => 'myCompany',
-                    'location' => 'Chicago',
+                    'location' => 'chicago',
                     'website' => 'https://company.co',
                     'logo' => UploadedFile::fake()->image('myLogo.jpg'),
                 ],
@@ -45,7 +47,7 @@ class JobsCreateTest extends TestCase
                 [
                     'name' => 'myCompany',
                     'website' => 'https://company.co',
-                    'location' => 'London',
+                    'location' => 'chicago',
                 ],
             ],
         ];
@@ -54,13 +56,15 @@ class JobsCreateTest extends TestCase
     /**
      * @dataProvider validInputProvider
      */
-    public function test_store_valid_job_create_request($job, $company)
+    public function test_update_job_with_input($job, $company)
     {
         $this->withoutExceptionHandling();
 
         Storage::fake();
 
-        $this->post(route('jobs.store'), compact('job', 'company'))
+        $existing = factory(Job::class)->create();
+
+        $this->put(route('jobs.update', $existing), compact('job', 'company'))
             ->assertSuccessful()
             ->assertSessionHasNoErrors();
 
@@ -68,35 +72,7 @@ class JobsCreateTest extends TestCase
         if (isset($company['logo'])) {
             Storage::assertExists($company['logo'] = $company['logo']->hashName('logos'));
         }
-
         $this->assertDatabaseHas('jobs', $job);
         $this->assertDatabaseHas('companies', $company);
-    }
-
-    public function invalidInputProvider()
-    {
-        return [
-            'incomplete job' => [
-                ['title' => 'incomplete fields'],
-                [],
-            ],
-            'incomplete company' => [
-                [
-                    'title' => 'senior developer',
-                    'region' => 'Full time',
-                    'instructions' => 'company.co/apply',
-                    'description' => 'at co we are looking for lorem ipsum',
-                ],
-                ['logo' => UploadedFile::fake()->image('test.jpg')],
-            ],
-        ];
-    }
-
-    /**
-     * @dataProvider invalidInputProvider
-     */
-    public function test_return_errors_for_invalid_job_create_request($job, $company)
-    {
-        $this->post(route('jobs.store'), compact('job', 'company'))->assertSessionHasErrors();
     }
 }

@@ -37,6 +37,23 @@ class JobController extends Controller
         return view('jobs.preview', compact('job'));
     }
 
+    public function edit(Job $job)
+    {
+        return view('jobs.create', ['job' => $job, 'action' => route('jobs.update', $job->id), 'method' => 'PUT']);
+    }
+
+    public function update(Job $job)
+    {
+        $this->validateRequest();
+
+        $job->loadDetails();
+
+        $job->update(request('job'));
+        $job->company->update(request('company'));
+
+        return view('jobs.preview', compact('job'));
+    }
+
     protected function validateRequest()
     {
         return request()->validate([
@@ -46,6 +63,8 @@ class JobController extends Controller
             'job.instructions' => 'required',
             'company.name' => 'required',
             'company.logo' => 'nullable|image|max:1024',
+            'company.location' => 'required',
+            'company.website' => 'required|url',
         ]);
     }
 }
