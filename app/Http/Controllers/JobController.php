@@ -37,15 +37,17 @@ class JobController extends Controller
         return view('jobs.preview', compact('job'));
     }
 
-    public function edit(Job $job)
+    public function edit($job)
     {
+        $job = Job::findDraft($job);
         return view('jobs.create', ['job' => $job, 'action' => route('jobs.update', $job->id), 'method' => 'PUT']);
     }
 
-    public function update(Job $job)
+    public function update($job)
     {
         $this->validateRequest();
 
+        $job = Job::findDraft($job);
         $job->loadDetails();
 
         $job->update(request('job'));
