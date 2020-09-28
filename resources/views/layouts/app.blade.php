@@ -8,17 +8,18 @@
     <title>We Work Remotely</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @stack('styles')
-    @stack('head-scripts')
     <livewire:styles />
+
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+    @stack('head')
 </head>
 
 
 <body>
     @yield('content')
 
-    @stack('scripts')
     <livewire:scripts />
+    @stack('scripts')
 </body>
 
 </html>

@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController')->name('home');
 
 Route::resource('/jobs', 'JobController');
+
+
+
+Route::get('/stripe/success/{session_id}', 'StripeReturnController@success')->name('stripe.return.success');
+Route::get('/stripe/cancel/{session_id}', 'StripeReturnController@cancel')->name('stripe.return.cancel');
+
+
+Route::get('/checkout/{job}', 'CheckoutController')->name('checkout');
