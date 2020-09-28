@@ -22,3 +22,7 @@ $factory->define(Job::class, function (Faker $faker) {
         'company_id' => factory(Company::class),
     ];
 });
+
+$factory->state(Job::class, 'published', [
+    'published' => true
+]);
