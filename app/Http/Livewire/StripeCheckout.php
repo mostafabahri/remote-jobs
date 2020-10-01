@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Payment\StripePayment;
+use App\Payment\CheckoutFlow;
 use Livewire\Component;
 
 class StripeCheckout extends Component
@@ -18,9 +18,9 @@ class StripeCheckout extends Component
         $this->clientRef = $clientRef;
     }
 
-    public function createSession(StripePayment $payment)
+    public function createSession(CheckoutFlow $checkout)
     {
-        $session = $payment->initiate(
+        $session = $checkout->initiate(
             ['client_reference_id' => $this->clientRef]
         );
 

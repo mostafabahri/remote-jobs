@@ -2,7 +2,7 @@
 
 namespace App\Payment;
 
-class StripePayment
+class CheckoutFlow
 {
     public function initiate($options)
     {
@@ -13,7 +13,7 @@ class StripePayment
             'line_items' => [[
                 'price' => 'price_1HP9ShGzTVrXCnhafJHrDjKk',
                 'quantity' => 1,
-            ],],
+            ]],
             'mode' => 'subscription',
             'success_url' => url('/stripe/success/{CHECKOUT_SESSION_ID}'),
             'cancel_url' => url('/stripe/cancel/{CHECKOUT_SESSION_ID}'),

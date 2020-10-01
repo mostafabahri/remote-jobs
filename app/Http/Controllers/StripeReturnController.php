@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Job;
-use App\Payment\StripePayment;
+use App\Payment\CheckoutFlow;
 use Illuminate\Support\Facades\Log;
 
 class StripeReturnController extends Controller
 {
-    public function success(StripePayment $stripe, $session_id)
+    public function success(CheckoutFlow $checkout, $session_id)
     {
         Log::debug('success with ref: ' . $session_id);
 
-        $reference = $stripe->findReferenceBySession($session_id);
+        $reference = $checkout->findReferenceBySession($session_id);
 
         return view('success', [
             'job' => Job::findOrFail($reference)

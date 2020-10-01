@@ -2,7 +2,7 @@
 
 namespace Tests\Integration\Stripe;
 
-use App\Payment\StripePayment;
+use App\Payment\CheckoutFlow;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -11,7 +11,7 @@ class LivewireStripeCheckoutTest extends TestCase
     /** @test */
     public function can_create_sessions()
     {
-        $this->mock(StripePayment::class, function ($mock) {
+        $this->mock(CheckoutFlow::class, function ($mock) {
             $mock->shouldReceive('initiate')
                 ->withArgs([
                     ['client_reference_id' => 10]

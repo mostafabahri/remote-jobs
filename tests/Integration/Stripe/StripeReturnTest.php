@@ -3,7 +3,7 @@
 namespace Tests\Integration\Stripe;
 
 use App\Job;
-use App\Payment\StripePayment;
+use App\Payment\CheckoutFlow;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -17,7 +17,7 @@ class StripeReturnTest extends TestCase
         $job = factory(Job::class)->state('published')->create();
 
         $this->mock(
-            StripePayment::class,
+            CheckoutFlow::class,
             fn ($mock) =>
             $mock->shouldReceive('findReferenceBySession')
                 ->withArgs(['cs_ok'])
