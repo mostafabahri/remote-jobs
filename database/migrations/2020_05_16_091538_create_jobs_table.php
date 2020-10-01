@@ -25,6 +25,9 @@ class CreateJobsTable extends Migration
 
             $table->index('created_at');
             $table->index('company_id');
+
+            $table->boolean('published')->default(false)->index();
+
         });
     }
 

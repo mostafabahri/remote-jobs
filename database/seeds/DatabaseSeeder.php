@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         factory(Company::class)->times(10)->create()->each(
             function (Company $company) {
                 // Seed the company with some jobs
-                $jobs = factory(Job::class)->times(mt_rand(1, 3))->make();
+                $jobs = factory(Job::class)->state('published')->times(mt_rand(1, 3))->make();
                 $company->jobs()->saveMany($jobs);
             }
         );
