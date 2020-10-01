@@ -9,9 +9,14 @@ class CheckoutSessionCompleted
 {
     public function handle(\Stripe\Event $event)
     {
-        $job = Job::findDraft($event->data->object->client_reference_id);
+        $job = Job::findDraft($this->referenceFor($event));
         $job->publish();
 
         Log::debug($job);
+    }
+
+    private function referenceFor($event)
+    {
+        return app(CheckoutFlow::class)->referenceForSession($event->data->object);
     }
 }

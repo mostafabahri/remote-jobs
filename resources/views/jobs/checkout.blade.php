@@ -12,7 +12,7 @@
           <p> Enter <code class="text-gray-800">4242 4242 4242 4242 </code> for card number and any future date and CVC is valid.</p>
 
         <div class="text-red-600">Total $299</div>
-        <livewire:stripe-checkout :clientRef="$job->id"/>
+        <livewire:stripe-checkout :reference="$job->id"/>
       <x-button href="{{route('jobs.edit', $job->id)}}" class="" size="sm"> make changes</x-button>
     </div>
 

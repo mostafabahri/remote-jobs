@@ -19,7 +19,7 @@ class StripeReturnTest extends TestCase
         $this->mock(
             CheckoutFlow::class,
             fn ($mock) =>
-            $mock->shouldReceive('findReferenceBySession')
+            $mock->shouldReceive('referenceForSessionId')
                 ->withArgs(['cs_ok'])
                 ->andReturn($job->id)
         );

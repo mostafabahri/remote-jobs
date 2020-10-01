@@ -12,7 +12,7 @@ class StripeReturnController extends Controller
     {
         Log::debug('success with ref: ' . $session_id);
 
-        $reference = $checkout->findReferenceBySession($session_id);
+        $reference = $checkout->referenceForSessionId($session_id);
 
         return view('success', [
             'job' => Job::findOrFail($reference)

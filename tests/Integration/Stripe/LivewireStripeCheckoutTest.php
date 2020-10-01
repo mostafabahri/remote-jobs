@@ -13,16 +13,14 @@ class LivewireStripeCheckoutTest extends TestCase
     {
         $this->mock(CheckoutFlow::class, function ($mock) {
             $mock->shouldReceive('initiate')
-                ->withArgs([
-                    ['client_reference_id' => 10]
-                ])
+                ->withArgs([['reference' => 10]])
                 ->once()
                 ->andReturn(['id' => 'cs_test_123']);
         });
 
         Livewire::test(
             \App\Http\Livewire\StripeCheckout::class,
-            ['clientRef' => 10]
+            ['reference' => 10]
         )
             ->call('createSession')
             ->assertEmitted('sessionCreated', 'cs_test_123');
