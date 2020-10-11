@@ -4,12 +4,7 @@
             
             
     <a href="/" class="inline-flex items-center space-x-2 font-bold text-red-600">
-        <svg class="w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <title>left arrow icon</title>
-            <path fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z"
-                clip-rule="evenodd"></path>
-        </svg>
+        <x-heroicon-s-arrow-circle-left class="w-5" />
         <span>Back to all jobs</span>
     </a>
             <h4 class="uppercase text-gray-700 mt-4 text-sm">Posted
@@ -27,12 +22,7 @@
         <div class="hidden sm:block">
                 
     <a href="/" class="inline-flex items-center mb-4 space-x-2 font-bold text-red-600">
-        <svg class="w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <title>left arrow icon</title>
-            <path fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z"
-                clip-rule="evenodd"></path>
-        </svg>
+        <x-heroicon-s-arrow-circle-left class="w-5" /> 
         <span>See more programming jobs</span>
     </a>
                 
