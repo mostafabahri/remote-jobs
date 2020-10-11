@@ -11,7 +11,7 @@ trait HasLogo
     {
         return $logo_path ?
             Storage::url($logo_path) :
-            "https://picsum.photos/seed/" . $this->id . '/60/60';
+            "https://picsum.photos/seed/" . $this->id . '/100/100';
     }
 
     protected function setLogoAttribute(UploadedFile $file)
