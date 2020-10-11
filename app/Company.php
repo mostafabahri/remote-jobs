@@ -12,7 +12,9 @@ class Company extends Model
         'name',
         'logo',
         'location',
-        'website'
+        'website',
+        'description',
+        'statement',
     ];
 
     public function jobs()

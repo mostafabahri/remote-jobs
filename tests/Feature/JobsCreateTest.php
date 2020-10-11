@@ -33,6 +33,8 @@ class JobsCreateTest extends TestCase
                     'location' => 'Chicago',
                     'website' => 'https://company.co',
                     'logo' => UploadedFile::fake()->image('myLogo.jpg'),
+                    'description' => 'lorem ipsum dolar sit',
+                    'statement' => 'lorem ipsum',
                 ],
             ],
             'all data without logo' => [

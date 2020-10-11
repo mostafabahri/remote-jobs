@@ -10,5 +10,7 @@ $factory->define(Company::class, function (Faker $faker) {
         'name' => $faker->company,
         'location' => $faker->city,
         'website' => $faker->url,
+        'statement' => $faker->sentence,
+        'description' => $faker->realText(500)
     ];
 });
