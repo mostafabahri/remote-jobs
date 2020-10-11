@@ -2,7 +2,7 @@
     <article class="flex py-6 items-center border border-gray-400 hover:bg-gray-100 px-8 lg:px-16">
         @if($companyLogo())
         <img src="{{$companyLogo()}}" alt="logo"
-            class="hidden lg:block w-16 h-16 border border-gray-900 rounded-full transform -translate-x-8 bg-gray-100 lg:-ml-16">
+            class="hidden lg:block w-16 h-16 border border-gray-900 rounded-full transform -translate-x-8 bg-gray-100 lg:-ml-16 object-cover">
         @endif
 
         <div class="space-y-2 flex-grow">

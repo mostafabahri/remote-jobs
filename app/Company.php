@@ -12,11 +12,18 @@ class Company extends Model
         'name',
         'logo',
         'location',
-        'website'
+        'website',
+        'description',
+        'statement',
     ];
 
     public function jobs()
     {
         return $this->hasMany(Job::class);
+    }
+
+    public function getRouteAttribute()
+    {
+        return route('companies.show', $this->id);
     }
 }

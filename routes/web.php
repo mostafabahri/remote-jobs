@@ -24,3 +24,5 @@ Route::get('/stripe/cancel/{session_id}', 'StripeReturnController@cancel')->name
 
 
 Route::get('/checkout/{job}', 'CheckoutController')->name('checkout');
+
+Route::resource('/companies', 'CompanyController')->only('show');
