@@ -21,4 +21,9 @@ class Company extends Model
     {
         return $this->hasMany(Job::class);
     }
+
+    public function getRouteAttribute()
+    {
+        return route('companies.show', $this->id);
+    }
 }
