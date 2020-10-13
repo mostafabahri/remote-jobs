@@ -1,47 +1,46 @@
-<div class="container">
-    <main class="py-6 px-3 flex justify-between sm:space-x-4">
+<section>
+    <div class="flex justify-between sm:space-x-4">
         <div class="w-full sm:w-3/5">
-            
-            
-    <a href="/" class="inline-flex items-center space-x-2 font-bold text-red-600">
-        <x-heroicon-s-arrow-circle-left class="w-5" />
-        <span>Back to all jobs</span>
-    </a>
-            <h4 class="uppercase text-gray-700 mt-4 text-sm">Posted
-                    {{$job->created_at->format('M d')}}
-                    </h4>
-                    <h2 class="font-medium text-3xl my-4 capitalize">{{$job->title}}</h2>
 
-                    <div class="prose lg:prose-lg text-gray-800 my-4">
-                        {{$job->description}}
-                    </div>
-                    <div class="my-10">
-                        <x-button href="{{ $job->instructions }}" class="btn"> Apply for this position</x-button>
-                    </div>
+
+            <h4 class="mt-4 text-sm text-gray-700 uppercase">Posted
+                {{$job->created_at->format('M d')}}
+            </h4>
+            <h2 class="my-4 text-3xl font-medium capitalize">{{$job->title}}</h2>
+
+            <div class="my-4 prose text-gray-800 lg:prose-lg">
+                {{$job->description}}
+            </div>
+            <div class="my-10">
+                <x-button href="{{ $job->instructions }}" class="preview"> Apply for this position</x-button>
+            </div>
         </div>
         <div class="hidden sm:block">
-                
-    <a href="/" class="inline-flex items-center mb-4 space-x-2 font-bold text-red-600">
-        <x-heroicon-s-arrow-circle-left class="w-5" /> 
-        <span>See more programming jobs</span>
-    </a>
-                
-                
-                <div
-                    class="px-6 py-8 bg-gray-200 shadow-sm flex flex-col items-center space-y-3">
 
+
+            <div class="px-6 bg-gray-100 shadow-md">
+
+                <div class="flex flex-col items-center py-6 space-y-3">
                     <a href="{{$job->company->route}}">
-                        <img src="{{$job->company->logo}}" alt="logo" class="w-20 h-20 rounded-full">
+                        <img src="{{$job->company->logo}}" alt="logo" class="object-contain w-20 h-20 rounded-full">
                     </a>
 
                     <a href="{{$job->company->route}}">
                         <h4 class="text-lg font-bold">{{$job->company->name}}</h4>
                     </a>
-                    <p class="uppercase text-sm text-gray-700"> jobs posted: {{$job->company->jobs_count}}</p>
-                    <x-button href="{{$job->instructions}}" class="btn" size="sm"> Apply for this position
+                    <p class="text-sm text-gray-700 uppercase"> jobs posted: {{$job->company->jobs_count}}</p>
+                    <x-button href="{{$job->instructions}}" class="preview" size="sm"> Apply for this position
                     </x-button>
-        </div>
+                </div>
+                <div class="pt-3 pb-6 border-t preview">
+                    <a href="{{$job->company->route}}"
+                        class="flex items-center justify-center space-x-2 font-bold text-red-600">
+                        <span>View all jobs</span>
+                        <x-heroicon-s-arrow-circle-right class="w-5" />
+                    </a>
+                </div>
+            </div>
 
-</div>
-</main>
-</div>
+        </div>
+    </div>
+</section>
