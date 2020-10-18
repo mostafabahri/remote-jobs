@@ -16,7 +16,7 @@ trait HasLogo
 
     protected function setLogoAttribute(UploadedFile $file)
     {
-        $this->attributes['logo'] = $file->store($this->logoStoragePath);
+        $this->attributes['logo'] = $file->storePublicly($this->logoStoragePath);
     }
 
     public function getLogoStoragePathAttribute()
