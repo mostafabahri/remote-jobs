@@ -16,6 +16,7 @@
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
+        "league/flysystem-aws-s3-v3": "~1.0",
         "livewire/livewire": "^1.2",
         "stripe/stripe-php": "^7.52"
     },
