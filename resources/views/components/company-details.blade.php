@@ -1,7 +1,7 @@
 <section>
     <div class="flex justify-between">
         <div class="flex items-center space-x-6">
-            <img src="{{$company->logo}}" alt="{{$company->name}} logo" class="object-contain w-24 h-24 rounded-full">
+            <img src="{{$company->logoUrl()}}" alt="{{$company->name}} logo" class="object-contain w-24 h-24 rounded-full">
             <div class="space-y-2">
                 <h1 class="text-2xl font-semibold">{{$company->name}}</h1>
                 <h3 class="inline-flex items-center text-gray-800">
