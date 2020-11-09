@@ -35,6 +35,6 @@ class JobItem extends Component
 
     public function companyLogo()
     {
-        return $this->job->company->logo;
+        return $this->job->company->logoUrl();
     }
 }

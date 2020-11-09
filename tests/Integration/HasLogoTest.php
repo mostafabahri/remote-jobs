@@ -21,6 +21,8 @@ class HasLogoTest extends TestCase
 
         $company = factory(Company::class)->create(['logo' => $logo]);
 
+        $this->assertEquals($logo->hashName($company->logoStoragePath), $company->logo);
+
         Storage::assertExists($logo->hashName($company->logoStoragePath));
     }
 
@@ -34,7 +36,7 @@ class HasLogoTest extends TestCase
 
         $company = factory(Company::class)->create(['logo' => $logo]);
 
-        $this->assertEquals(Storage::url($logo->hashName($company->logoStoragePath)), $company->logo);
+        $this->assertEquals(Storage::url($logo->hashName($company->logoStoragePath)), $company->logoUrl());
     }
 
     /** @test */
@@ -42,6 +44,6 @@ class HasLogoTest extends TestCase
     {
         $company = factory(Company::class)->create();
 
-        $this->assertStringContainsString('picsum', $company->logo);
+        $this->assertStringContainsString('picsum', $company->logoUrl());
     }
 }

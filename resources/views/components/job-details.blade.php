@@ -22,7 +22,7 @@
 
                 <div class="flex flex-col items-center py-6 space-y-3">
                     <a href="{{$job->company->route}}">
-                        <img src="{{$job->company->logo}}" alt="logo" class="object-contain w-20 h-20 rounded-full">
+                        <img src="{{$job->company->logoUrl()}}" alt="logo" class="object-contain w-20 h-20 rounded-full">
                     </a>
 
                     <a href="{{$job->company->route}}">

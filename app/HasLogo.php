@@ -7,10 +7,10 @@ use Illuminate\Support\Facades\Storage;
 
 trait HasLogo
 {
-    protected function getLogoAttribute($logo_path): string
+    public function logoUrl()
     {
-        return $logo_path ?
-            Storage::url($logo_path) :
+        return $this->logo ?
+            $this->url() :
             "https://picsum.photos/seed/" . $this->id . '/100/100';
     }
 
@@ -22,5 +22,10 @@ trait HasLogo
     public function getLogoStoragePathAttribute()
     {
         return 'logos';
+    }
+
+    private function url()
+    {
+        return Storage::url($this->logo);
     }
 }
