@@ -24,7 +24,7 @@
     },
     "dependencies": {
         "@tailwindcss/typography": "^0.2.0",
-        "axios": "^0.19",
+        "axios": "^0.21",
         "cross-env": "^7.0",
         "laravel-mix": "^5.0.1",
         "laravel-mix-purgecss": "^5.0.0",
